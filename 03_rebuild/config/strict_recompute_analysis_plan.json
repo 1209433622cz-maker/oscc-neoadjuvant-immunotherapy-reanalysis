@@ -1,0 +1,87 @@
+{
+  "created": "2026-07-22",
+  "status": "draft frozen before full recomputation",
+  "compute_policy": {
+    "run_now_while_machine_busy": false,
+    "safe_now_tasks": [
+      "metadata parsing",
+      "manifest audits",
+      "configuration generation",
+      "small bulk metadata checks"
+    ],
+    "defer_until_idle": [
+      "full GSE200996 recomputation",
+      "GSE301741 full RDS metadata extraction",
+      "GSE301741 sample-level single-cell reconstruction",
+      "publication-grade figure regeneration"
+    ],
+    "local_memory_note": "Current workstation has about 34 GB RAM; direct full GSE301741 RDS loading is not recommended unless memory is freed and extraction is run as a controlled metadata-only job."
+  },
+  "cohorts": {
+    "GSE200996": {
+      "role": "primary discovery and within-cohort multimodal support",
+      "modalities": ["tumor scRNA", "tumor scTCR", "tumor bulk TCR", "PBMC scRNA", "PBMC scTCR", "PBMC bulk TCR"],
+      "primary_unit": "patient",
+      "primary_endpoint": "post-treatment tumor response association across 19 response-annotated patients",
+      "paired_support": "six strict tumor scRNA pairs",
+      "response_status": "Low/Medium/High categories available; continuous pathological response pending"
+    },
+    "GSE301741": {
+      "role": "primary disease-matched single-cell/TCR validation",
+      "modalities": ["tumor scRNA", "tumor scTCR"],
+      "primary_unit": "patient/sample",
+      "preferred_processing": "sample-level raw archive processing or metadata-only high-memory RDS extraction",
+      "response_status": "pending RDS metadata or supplementary clinical table extraction"
+    },
+    "GSE281729": {
+      "role": "secondary disease-matched bulk validation",
+      "modalities": ["bulk tumor RNA-seq"],
+      "primary_unit": "patient/sample",
+      "response_status": "categorical response available from surgery sample titles for many patients; propagate to paired baseline"
+    },
+    "GSE179730": {
+      "role": "secondary oral-cavity bulk validation",
+      "modalities": ["bulk tumor RNA-seq"],
+      "primary_unit": "patient/sample",
+      "response_status": "pending publication/source clinical table"
+    }
+  },
+  "primary_models": {
+    "composition": {
+      "method": "patient-level beta-binomial or overdispersed binomial using glmmTMB where estimable",
+      "formula": "cell_type_count / eligible_immune_count ~ response + treatment_arm",
+      "fallback": "patient-level logit proportion limma model with sensitivity diagnostics"
+    },
+    "pseudobulk_expression": {
+      "method": "edgeR quasi-likelihood primary; limma-voom sensitivity",
+      "primary_formula": "~ response + treatment_arm + estimable_batch_covariates",
+      "paired_support_formula": "~ patient + timepoint + response:timepoint"
+    },
+    "pathway": {
+      "primary": ["camera", "fry", "roast"],
+      "descriptive": ["fgsea"],
+      "gene_set_policy": "lock modules before external outcome testing"
+    },
+    "tcr": {
+      "primary_metrics": ["productive_clonotype_richness", "normalized_shannon", "top_clone_fraction", "expanded_clone_fraction", "morisita_horn_overlap", "jaccard_overlap"],
+      "primary_package": "immunarch",
+      "fallback": "data.table implementation for clone counting and overlap"
+    }
+  },
+  "validation_gates": {
+    "module_enters_main_figure": [
+      "locked before validation",
+      "same direction in disease-matched cohort",
+      "validation FDR below 0.10 in at least one disease-matched cohort",
+      "meta-analysis FDR below 0.05 when multiple disease-matched cohorts are available",
+      "not driven by one patient under influence analysis"
+    ],
+    "failed_validation_action": "downgrade to exploratory or remove from main narrative; do not reselect modules after outcome review"
+  },
+  "outputs_before_full_run": [
+    "03_rebuild/manifests/RESPONSE_METADATA_FREEZE.csv",
+    "03_rebuild/config/response_harmonization_rules.json",
+    "03_rebuild/config/strict_recompute_analysis_plan.json",
+    "GSE301741 metadata extraction decision"
+  ]
+}

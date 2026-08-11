@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this code, please cite the associated manuscript and this repository."
+title: "OSCC neoadjuvant immunotherapy reanalysis"
+type: software
+authors:
+  - family-names: Chen
+    given-names: Zhi
+    email: zhichen1@link.cuhk.edu.cn
+    affiliation: "School of Medicine, The Chinese University of Hong Kong, Shenzhen, 2001 Longxiang Boulevard, Longgang District, Shenzhen 518172, China"
+    orcid: "https://orcid.org/0009-0001-0072-5576"
+repository-code: "https://github.com/1209433622cz-maker/oscc-neoadjuvant-immunotherapy-reanalysis"
+doi: 10.5281/zenodo.21862445
+date-released: 2026-08-09
+license: MIT
+abstract: >-
+  Reproducible R, Python and PowerShell workflows for patient-level analysis of
+  longitudinal immune-state remodeling in public oral and head-and-neck cancer
+  immunotherapy datasets.
+keywords:
+  - oral squamous cell carcinoma
+  - neoadjuvant immunotherapy
+  - single-cell RNA sequencing
+  - pseudobulk
+  - pathological response

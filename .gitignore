@@ -1,0 +1,66 @@
+# Raw and downloaded data
+00_raw_data/
+01_processed_data/
+02_references/
+*.rds
+*.RData
+*.rda
+*.h5
+*.h5ad
+*.loom
+*.mtx
+*.mtx.gz
+*.fastq
+*.fastq.gz
+*.bam
+*.cram
+*.tar
+*.tar.gz
+
+# Generated analysis products
+03_rebuild/results/
+03_rebuild/figures/
+03_rebuild/tables/
+03_rebuild/validation/
+03_rebuild/logs/
+03_rebuild/tmp/
+03_rebuild/clean_room/
+03_rebuild/manuscript/
+03_rebuild/submission_package/
+03_rebuild/targets/*/outputs/
+03_rebuild/targets/*/qc/
+
+# Local environments and installers
+03_rebuild/env/runtimes/
+03_rebuild/env/vendor/
+03_rebuild/env/installers/
+.venv/
+venv/
+renv/library/
+
+# Documents and rendered review files
+*.docx
+*.pdf
+*.png
+*.tif
+*.tiff
+
+# Caches and editor files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.Rhistory
+.Rproj.user/
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+
+# Secrets and local overrides
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials*
+secrets*

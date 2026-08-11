@@ -1,0 +1,14 @@
+{
+  "analysis_id": "locked_family_overlap_preserving_null",
+  "freeze_date": "2026-07-27",
+  "module_manifest": "03_rebuild/results/external_validation/GSE123813_gene_set_manifest.csv",
+  "expected_module_count": 16,
+  "random_control_iterations": 2000,
+  "random_seed": 20260727,
+  "random_control_matching": "For every measured locked gene, sample one unique background gene from the same cohort-specific mean-expression decile and assign that replacement to every module containing the original gene. This preserves module size, complete gene-to-module incidence, pairwise and higher-order overlap, and gene-reuse multiplicity.",
+  "locked_genes_excluded_from_background": true,
+  "empirical_specificity_test": "Two-sided absolute observed family effect versus overlap-preserving matched random-family effects with plus-one correction.",
+  "module_reselection_allowed": false,
+  "gene_reselection_allowed": false,
+  "report_null_results": true
+}

@@ -1,0 +1,65 @@
+{
+  "analysis_id": "gse232240_frozen_independent_validation",
+  "freeze_date": "2026-08-09",
+  "cohort": "GSE232240_IMCISION",
+  "source_doi": "10.1158/2159-8290.CD-22-0851",
+  "module_manifest": "03_rebuild/config/locked_family_gene_set_manifest.csv",
+  "module_manifest_sha256": "c1b78f23ea68eec838f14e6e31a2cc81b0c31ea3334b84e58f51ec2cb7582bc0",
+  "expected_module_count": 16,
+  "metadata_file": "00_raw_data/external_validation/GSE232240/GSM7324295_Meta_data_IMCISION.txt.gz",
+  "metadata_sha256": "3e812b040683f1b1c757e8e6fd1be2ca7e9c689d81a79e35d3a19d7648c90335",
+  "count_file": "00_raw_data/external_validation/GSE232240/GSM7324294_Count_data_IMCISION.txt.gz",
+  "excluded_patients": {
+    "Pat04": "nivolumab monotherapy; source-defined regimen difference"
+  },
+  "required_metadata_columns": [
+    "cell_id",
+    "patient",
+    "timepoint",
+    "response",
+    "cell_type"
+  ],
+  "timepoint_levels": ["pre", "post"],
+  "response_levels": ["NR", "RE"],
+  "lineage_map": {
+    "CD4": "T_cell",
+    "CD8": "T_cell",
+    "M": "Myeloid"
+  },
+  "minimum_cells_per_patient_timepoint_lineage": 30,
+  "primary_population": "patients eligible in both T_cell and Myeloid at both timepoints",
+  "normalization": "lineage-specific pseudobulk log2(CPM+0.5), followed by response-blind gene-wise z scoring",
+  "module_score": "mean z score of measured genes in each frozen module and its frozen target lineage",
+  "family_score": "unweighted mean of all 16 frozen module scores",
+  "patient_delta": "post minus pre",
+  "primary_effect": "mean patient delta in RE minus mean patient delta in NR",
+  "primary_test": "two-sided exhaustive permutation of patient response labels with fixed group sizes",
+  "primary_orientation": "positive",
+  "global_shift_sensitivity": "HC3 response coefficient adjusted for response-blind global-expression PC1 delta",
+  "random_control_iterations": 2000,
+  "random_seed": 20260809,
+  "random_control_matching": "measured locked genes replaced one-to-one within response-blind detectability deciles; one replacement map is reused across modules to preserve gene overlap",
+  "secondary_analyses": [
+    "T-cell family delta",
+    "myeloid family delta",
+    "16 module-level effects with Benjamini-Hochberg correction",
+    "leave-one-patient-out direction stability",
+    "within-sample gene-rank score"
+  ],
+  "primary_success_gates": [
+    "two-sided exact permutation P < 0.05",
+    "positive prespecified orientation",
+    "global-PC1-adjusted HC3 response P < 0.05",
+    "overlap-preserving matched-family empirical P < 0.05",
+    "no leave-one-patient-out sign reversal",
+    "direction concordance of z-score and rank-score families"
+  ],
+  "prohibited": [
+    "outcome-guided gene or module selection",
+    "outcome-guided lineage or cell-state selection",
+    "post hoc response relabelling",
+    "exclusion without a source-defined quality or regimen reason",
+    "using cells, genes or modules as independent response replicates",
+    "suppressing a null or opposite result"
+  ]
+}

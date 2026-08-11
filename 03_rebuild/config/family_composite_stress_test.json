@@ -1,0 +1,31 @@
+{
+  "analysis_id": "family_composite_stress_test",
+  "freeze_date": "2026-07-27",
+  "base_module_manifest": "03_rebuild/results/external_validation/GSE123813_gene_set_manifest.csv",
+  "score_variants": [
+    "module_mean_16",
+    "unique_gene_equal",
+    "inverse_membership_module_mean",
+    "no_union_module_mean",
+    "hallmark_only_module_mean",
+    "dynamic_only_module_mean"
+  ],
+  "background_control": "mean score of all non-locked genes within each expression decile, weighted to the measured unique-locked-gene decile distribution",
+  "gse179730_tests": [
+    "unadjusted exhaustive response-label permutation",
+    "exhaustive response-label permutation after reduced-model residualization on matched-background delta"
+  ],
+  "gse281729_covariates": [
+    "HPV",
+    "second drug",
+    "author-provided doses/timing"
+  ],
+  "gse281729_background_sensitivity": true,
+  "wild_bootstrap_iterations": 9999,
+  "wild_bootstrap_seed": 20260727,
+  "wild_bootstrap_multiplier": "Rademacher",
+  "wild_bootstrap_residual_scaling": "HC2 leverage adjustment from the reduced model",
+  "wild_bootstrap_test_statistic": "HC3-studentized response coefficient",
+  "variant_reselection_allowed": false,
+  "report_all_variants": true
+}

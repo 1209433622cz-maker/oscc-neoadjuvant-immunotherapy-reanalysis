@@ -1,0 +1,70 @@
+{
+  "analysis_id": "gse281729_global_pc_composition",
+  "freeze_date": "2026-07-27",
+  "cohort": "GSE281729",
+  "paired_patient_rule": "exactly one pre-treatment and one post-treatment processed bulk RNA-seq sample with an embedded ordinal pathological-response category",
+  "expected_paired_patients": 30,
+  "expression_scale": "author-provided processed logTPM",
+  "locked_module_manifest": "03_rebuild/results/external_validation/GSE123813_gene_set_manifest.csv",
+  "family_score_variants": [
+    "module_mean_16",
+    "unique_gene_equal",
+    "inverse_membership_module_mean",
+    "no_union_module_mean",
+    "hallmark_only_module_mean",
+    "dynamic_only_module_mean"
+  ],
+  "scoring_methods": [
+    "z_score",
+    "rank_mean"
+  ],
+  "global_pc_primary_gene_universe": "non-locked genes with finite values across paired samples, mean logTPM >= 1 and non-zero paired-delta standard deviation",
+  "global_pc_sensitivity_gene_universe": "top 5000 non-locked genes by paired-delta variance after finite-value and non-zero-variance filtering",
+  "global_pc_response_blinding": true,
+  "global_pc_count": 3,
+  "composition_method": "MCP-counter v1.1 HUGO-symbol transcriptomic-marker mean scores",
+  "composition_signature_file": "03_rebuild/env/vendor/MCPcounter_signatures/genes.txt",
+  "composition_signature_sha256": "408f6c5d02c8f9bd2f1599c598367881853520934f8ce398a4886a8b296922bb",
+  "composition_signature_source": "https://raw.githubusercontent.com/ebecht/MCPcounter/master/Signatures/genes.txt",
+  "composition_package_archive": "03_rebuild/env/vendor/MCPcounter_1.1.0.tar.gz",
+  "composition_package_archive_md5": "e29f6e4b365c6aabdee3d58dd9e89414",
+  "composition_software_doi": "10.5281/zenodo.61372",
+  "composition_method_doi": "10.1186/s13059-016-1070-5",
+  "composition_pc_count": 3,
+  "base_covariates": [
+    "HPV",
+    "second drug",
+    "author-provided doses/timing"
+  ],
+  "model_specs": {
+    "base": [],
+    "global_pc1": [
+      "global_pc1"
+    ],
+    "global_pc1_pc2": [
+      "global_pc1",
+      "global_pc2"
+    ],
+    "composition_pc1": [
+      "composition_pc1"
+    ],
+    "global_pc1_composition_pc1": [
+      "global_pc1",
+      "composition_pc1"
+    ]
+  },
+  "wild_bootstrap_iterations": 9999,
+  "wild_bootstrap_seed": 20260727,
+  "wild_bootstrap_multiplier": "Rademacher",
+  "wild_bootstrap_residual_scaling": "HC2 leverage adjustment from the reduced model",
+  "wild_bootstrap_test_statistic": "HC3-studentized ordinal-response coefficient",
+  "correction_families": [
+    "six family-score variants within each scoring-method and model-spec family",
+    "five model specifications within each scoring-method and score-variant family",
+    "ten MCP-counter populations within the base response-model family",
+    "three PCs within each global or composition PC response-model family"
+  ],
+  "response_dependent_feature_selection_allowed": false,
+  "patient_exclusion_after_model_fit_allowed": false,
+  "report_all_models": true
+}

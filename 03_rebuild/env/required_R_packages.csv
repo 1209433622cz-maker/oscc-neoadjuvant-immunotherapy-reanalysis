@@ -1,0 +1,66 @@
+package,source,tier,purpose
+data.table,CRAN,core,Fast metadata and count table processing
+stringr,CRAN,core,String parsing for sample and patient identifiers
+Matrix,CRAN,core,Sparse matrix operations
+hdf5r,CRAN,core,Read 10x HDF5 files through Seurat
+Seurat,CRAN,core,Single-cell object construction and preprocessing
+SeuratObject,CRAN,core,Seurat object support
+dplyr,CRAN,core,Data manipulation
+tidyr,CRAN,core,Tidy reshaping
+tibble,CRAN,core,Tidy data frames
+readr,CRAN,core,Delimited data IO
+purrr,CRAN,core,Functional iteration helpers
+ggplot2,CRAN,core,Main plotting system
+limma,Bioc,core,Linear modelling for composition and expression summaries
+edgeR,Bioc,core,Primary pseudobulk quasi-likelihood differential expression
+DESeq2,Bioc,core,Pseudobulk differential expression sensitivity
+glmmTMB,CRAN,core,Beta-binomial and overdispersed patient-level composition models
+lme4,CRAN,core,Mixed-effects model sensitivity analyses
+emmeans,CRAN,core,Marginal effect estimates and contrasts
+coin,CRAN,core,Exact and permutation-based small-sample inference
+sandwich,CRAN,core,Robust covariance estimators
+lmtest,CRAN,core,Model diagnostic tests
+fgsea,Bioc,core,Fast preranked gene set enrichment
+msigdbr,CRAN,core,MSigDB Hallmark gene set access
+ComplexHeatmap,Bioc,core,Publication-grade heatmaps
+pheatmap,CRAN,core,Analysis heatmaps
+circlize,CRAN,core,Color functions used by ComplexHeatmap
+BiocParallel,Bioc,core,Bioconductor parallel backend control
+ggrepel,CRAN,figure,Non-overlapping text labels
+patchwork,CRAN,figure,Assemble multi-panel figures
+cowplot,CRAN,figure,Publication plot assembly
+scales,CRAN,figure,Axis and legend formatting
+viridis,CRAN,figure,Colorblind-friendly palettes
+RColorBrewer,CRAN,figure,Discrete palettes
+svglite,CRAN,figure,SVG/vector export
+ragg,CRAN,figure,High-quality raster export
+systemfonts,CRAN,figure,Font discovery for graphics devices
+Cairo,CRAN,figure,Alternative PDF/PNG device
+ggpubr,CRAN,figure,Convenience publication plotting helpers
+broom,CRAN,figure,Model result tidying
+sessioninfo,CRAN,reproducibility,Session and package reporting
+jsonlite,CRAN,reproducibility,Structured metadata output
+here,CRAN,reproducibility,Project path helpers
+withr,CRAN,reproducibility,Scoped environment helpers
+knitr,CRAN,manuscript,Table and report rendering
+rmarkdown,CRAN,manuscript,Report rendering
+openxlsx,CRAN,manuscript,Excel source-data workbook export
+readxl,CRAN,manuscript,Read external validation Excel files
+officer,CRAN,manuscript,Word document generation
+flextable,CRAN,manuscript,Formatted manuscript tables
+SingleCellExperiment,Bioc,optional,Interoperability for single-cell objects
+SummarizedExperiment,Bioc,optional,Bioconductor assay containers
+DropletUtils,Bioc,optional,10x droplet utility and ambient RNA checks
+scuttle,Bioc,optional,Single-cell QC utilities
+scran,Bioc,optional,Single-cell normalization and variance utilities
+scDblFinder,Bioc,optional,Sample-aware doublet detection
+speckle,Bioc,optional,Optional propeller composition sensitivity
+variancePartition,Bioc,optional,Repeated-measures voom/dream sensitivity
+clusterProfiler,Bioc,optional,Optional enrichment plotting and annotation
+enrichplot,Bioc,optional,Optional enrichment visualization
+immunarch,CRAN,optional,TCR repertoire diversity and overlap sensitivity
+scRepertoire,CRAN,deferred,Single-cell TCR clonotype summaries; CRAN binary unavailable for current R 4.6
+DirichletReg,CRAN,optional,Compositional sensitivity modelling
+future,CRAN,optional,Parallel backend for Seurat workflows
+future.apply,CRAN,optional,Parallel apply helpers
+harmony,CRAN,optional,Batch-aware visualization sensitivity

@@ -1,0 +1,33 @@
+{
+  "created": "2026-07-29T10:47:16+08:00",
+  "status": "response metadata freeze; category-level only for confirmed cohorts",
+  "primary_response_variable": {
+    "preferred": "path_response_percent",
+    "fallback": "response_harmonized_ordinal",
+    "fallback_rule": "Use ordered categorical response only when authoritative continuous pathological response cannot be recovered.",
+    "binary_rule": "Binary response is sensitivity only and must be cohort-specific, predeclared, and clinically justified."
+  },
+  "cohort_response_rules": {
+    "GSE200996": {
+      "current_status": "Low/Medium/High categories available for 19 tumor-response patients; continuous percent pending.",
+      "allowed_primary_before_percent_recovery": false
+    },
+    "GSE301741": {
+      "current_status": "sample manifest ready; patient response pending RDS metadata or supplementary table extraction.",
+      "allowed_primary_before_response_recovery": false
+    },
+    "GSE281729": {
+      "current_status": "surgery sample titles provide Non-Responder/minor Responder/Responder/Complete Responder for many patients.",
+      "harmonization": "Non-Responder=Low; minor Responder=Medium; Responder or Complete Responder=High for module-level direction checks.",
+      "allowed_primary_before_percent_recovery": "secondary_validation_only"
+    },
+    "GSE179730": {
+      "current_status": "sample manifest ready; patient response pending publication/source table.",
+      "allowed_primary_before_response_recovery": false
+    }
+  },
+  "locked_outputs": [
+    "03_rebuild/manifests/RESPONSE_METADATA_FREEZE.csv",
+    "03_rebuild/manifests/RESPONSE_METADATA_FREEZE_AUDIT.csv"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "analysis_id": "locked_family_robustness",
+  "freeze_date": "2026-07-27",
+  "module_manifest": "03_rebuild/results/external_validation/GSE123813_gene_set_manifest.csv",
+  "expected_module_count": 16,
+  "primary_family_score": "unweighted mean of all 16 locked module scores per sample",
+  "primary_cross_sample_scoring": "mean gene-wise z score within each locked module",
+  "rank_sensitivity_scoring": "mean within-sample percentile rank of genes within each locked module",
+  "gse179730_primary_test": "two-sided exhaustive responder-label permutation of responder minus non-responder paired family-score delta",
+  "gse179730_expected_assignments": 462,
+  "gse281729_primary_test": "HC3 ordinal response coefficient adjusted for HPV, second drug and author-provided doses/timing",
+  "random_control_iterations": 2000,
+  "random_seed": 20260727,
+  "random_control_matching": "module size and gene mean-expression decile within each cohort; locked genes excluded from the sampling pool",
+  "empirical_specificity_test": "two-sided absolute observed family effect versus matched random-family effects with plus-one correction",
+  "module_reselection_allowed": false,
+  "gene_reselection_allowed": false,
+  "report_null_results": true
+}

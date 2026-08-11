@@ -1,0 +1,63 @@
+{
+  "analysis_id": "gse195832_locked_family_validation",
+  "freeze_date": "2026-07-27",
+  "cohort": "GSE195832",
+  "study_design": "paired pretreatment and post-treatment HNSCC bulk RNA-seq after two nivolumab doses, with or without tadalafil",
+  "counts_file": "00_raw_data/external_validation/GSE195832/mendeley_clinical_bulk/TJcohort_featurecounts_symbol.tsv",
+  "counts_sha256": "c0dec7dc317ba7e7981fcc81fff859773863728151920f5369b9792bc2d84afb",
+  "metadata_file": "00_raw_data/external_validation/GSE195832/mendeley_clinical_bulk/metadata_TJcohort.csv",
+  "metadata_sha256": "0b844cb7ca3327797a2444a5da848506c4d56b8012d834414d2364090b4cf4c2",
+  "module_manifest": "03_rebuild/results/external_validation/GSE123813_gene_set_manifest.csv",
+  "expected_samples": 56,
+  "expected_paired_patients": 28,
+  "expected_modules": 16,
+  "normalization": "library-size CPM followed by log2(CPM + 0.5)",
+  "response_blind_filter": "CPM >= 1 in at least 6 of 56 samples",
+  "response_order": [
+    "Non-Responder",
+    "Minimal Responder",
+    "Responder",
+    "Complete Responder"
+  ],
+  "prespecified_response_orientation": "positive",
+  "orientation_rationale": "all frozen modules encode positive post-treatment remodeling; deeper pathological response was hypothesized before GSE195832 scoring to accompany greater post-minus-pre induction",
+  "primary_scoring_method": "z_score",
+  "primary_score_variant": "module_mean_16",
+  "primary_model": "family post-minus-pre delta ~ ordinal response + tadalafil arm + sequencing batch, OLS with HC3 covariance",
+  "model_specs": {
+    "unadjusted": [],
+    "therapy_adjusted": [
+      "therapy_tadalafil"
+    ],
+    "primary": [
+      "therapy_tadalafil",
+      "batch2"
+    ],
+    "global_pc1": [
+      "therapy_tadalafil",
+      "batch2",
+      "global_pc1"
+    ],
+    "global_pc1_pc2": [
+      "therapy_tadalafil",
+      "batch2",
+      "global_pc1",
+      "global_pc2"
+    ]
+  },
+  "permutation_iterations": 20000,
+  "permutation_seed": 20260727,
+  "permutation_scheme": "ordinal response labels permuted within treatment arm; tadalafil arm and batch remain fixed",
+  "random_family_iterations": 2000,
+  "random_family_seed": 20260727,
+  "random_family_null": "one unique non-locked expression-decile-matched replacement per measured locked gene, inheriting every original module membership",
+  "global_pc_gene_universe": "filtered non-locked genes with non-zero paired-delta variance",
+  "global_pc_count": 3,
+  "composition_signature_file": "03_rebuild/env/vendor/MCPcounter_signatures/genes.txt",
+  "composition_signature_sha256": "408f6c5d02c8f9bd2f1599c598367881853520934f8ce398a4886a8b296922bb",
+  "age_covariate_allowed": false,
+  "age_exclusion_reason": "source metadata reports age 5 for TJU033; no unsourced correction is permitted",
+  "outcome_guided_selection_allowed": false,
+  "patient_exclusion_after_model_fit_allowed": false,
+  "report_all_results": true
+}
